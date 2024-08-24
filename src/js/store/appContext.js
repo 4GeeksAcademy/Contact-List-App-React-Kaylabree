@@ -20,7 +20,7 @@ const injectContext = PassedComponent => {
 
         useEffect(() => {
             state.actions.getContacts();
-        }, [state.actions]); // Adding state.actions as a dependency
+        }, []); // Adding state.actions as a dependency
 
         return (
             <Context.Provider value={state}>

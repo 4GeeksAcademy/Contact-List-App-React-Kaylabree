@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Context } from '../store/appContext';
 import ContactCard from '../component/ContactCard';
@@ -6,7 +6,10 @@ import ContactCard from '../component/ContactCard';
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 
-
+    useEffect(()  => {
+        actions.getContacts();
+        console.log("contacts from the store(useEffect on home.js)", store.contacts);
+    }, []);
 
 	return (
         <div className= "container">
