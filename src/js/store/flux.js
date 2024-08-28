@@ -24,19 +24,22 @@ const getState = ({ getStore, getActions, setStore }) => {
                     const response = await fetch(`https://playground.4geeks.com/contact/agendas/${user}/contacts`);
                     if (!response.ok) {
                         throw new Error(`Failed to fetch contacts: ${response.statusText}`);
-                        addUser();
+                      
+
                     }
                     const data = await response.json();
-                    if (Array.isArray(data)) {
-                        setStore({ contacts: data });
-                    } else {
-                        console.error("Expected an array but got: ", data);
-                        setStore({ contacts: data });
+                    console.log("jsonified response from API, data"); 
+                    if (Array.isArray(data.contacts)) {
+                        setStore({ contacts: data.contacts});
+                        console.log('contacts from API set in store,contacts')
+                    } else{
+                        console.error("Expected an array but got:", data);
+                        setStore({ contacts: [] });
                     }
                 } catch (error) {
                     console.error("Error fetching contacts:", error);
                     setStore({ contacts: [] });
-                    await addUser();
+                     addUser();
                 }
             },
             addContact: async (newContact) => {

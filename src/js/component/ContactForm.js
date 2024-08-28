@@ -41,7 +41,8 @@ export const ContactForm = () => {
              } else {
                 await actions.addContact(formData);
             }
-            await actions.getContacts();
+           
+            
             navigate("/");
         } catch (error) {
             console.error(isEdit ? "Error updating Contact" : "Error adding Contact", error);

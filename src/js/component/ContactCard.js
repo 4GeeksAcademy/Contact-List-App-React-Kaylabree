@@ -18,7 +18,7 @@ const ContactCard = ({ contact }) => {
     };
 
     return (
-        <li className="list-group-item">
+       
             <div className="card mb-3">
                 <div className="card-body">
                     <h5 className="card-title">{name}</h5>
@@ -31,7 +31,7 @@ const ContactCard = ({ contact }) => {
                     </div>
                 </div>
             </div>
-        </li>
+       
     );
 };
 
